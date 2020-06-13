@@ -5,6 +5,6 @@ function standart() {
       document.getElementById("demo").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "question.py", true);
+  xhttp.open("GET", "cgi-bin/question.py", true);
   xhttp.send();
 }
