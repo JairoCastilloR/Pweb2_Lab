@@ -14,16 +14,17 @@ movie =  "SELECT title, year, score, votes  FROM movies"
 complete = casting + movie + names 
 data = []
 
-for row in c.execute(complete):
+for row in c.execute(casting):
     data.append({
         'id_movie' : row[0],
         'id_actor' : row[1],
-        'name_movie' : row[2],
-        'year' : row[3],
-        'score' : row[4],
-        'votes' : row[5],
-        'name_actor' : row[6]
+        #'name_movie' : row[2],
+        #'year' : row[3],
+        #'score' : row[4],
+        #'votes' : row[5],
+        #'name_actor' : row[6]
         })
+    print(row)
 
 conection.close()
 
