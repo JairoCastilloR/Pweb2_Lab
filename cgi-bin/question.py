@@ -6,30 +6,26 @@ import json
 conection = sqlite3.connect('imdb.db')
 c = conection.cursor()
 
-names = "SELECT * FROM actor"
+names = "SELECT name FROM actor"
 #movies = "SELECT moviesID,|| ','|| title || ' is of the year ' || year AS "Movies at year ",score ||' with those votes ' || votes AS "Movies Scores " FROM movie"
 #I put a variable extremely large for test
-casting = "SELECT * FROM casting"
-movie =  "SELECT * FROM movies"
-complete = movie + names + casting  
+casting = "SELECT movieid , actorid FROM casting"
+movie =  "SELECT title, year, score, votes  FROM movies"
+complete = casting + movie + names 
 data = []
 
 for row in c.execute(complete):
     data.append({
         'id_movie' : row[0],
-        'name_movie' : row[1],
-        'year' : row[2],
-        'score' : row[3],
-        'votes' : row[4],
-        'id_name' : row[1],
-        'name_actor' : row[0],
-        'name_movie' : row[1],
-
-
+        'id_actor' : row[1],
+        'name_movie' : row[2],
+        'year' : row[3],
+        'score' : row[4],
+        'votes' : row[5],
+        'name_actor' : row[6]
         })
-
 
 conection.close()
 
 print("Content-type :application/json\n\n")
-print(json.dumps())
+print(json.dumps(data))
