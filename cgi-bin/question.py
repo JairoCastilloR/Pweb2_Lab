@@ -6,11 +6,11 @@ import json
 conection = sqlite3.connect('imdb.db')
 c = conection.cursor()
 
-names = "SELECT * FROM actor"
+names = "SELECT * FROM actor ORDER BY ActorId"
 #movies = "SELECT moviesID,|| ','|| title || ' is of the year ' || year AS "Movies at year ",score ||' with those votes ' || votes AS "Movies Scores " FROM movie"
 #I put a variable extremely large for test
 #casting = "SELECT movieid , actorid FROM casting"
-movie =  "SELECT * FROM movie"
+movie =  "SELECT * FROM movie ORDER BY MovieId"
 
 data = []
 data1 = []
@@ -27,8 +27,9 @@ for row in c.execute(movie):
 for row1 in c.execute(names):
     data1.append({
         'id_actor' : row1[0],
-        'name_actor' : row[1]
+        'name_actor' : row1[1]
         })
+    print(row1)
 dataComplete = data + data1 
 conection.close()
 
