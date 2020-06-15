@@ -34,4 +34,4 @@ dataComplete = data + data1
 conection.close()
 
 print("Content-type :application/json\n\n")
-print(json.dumps(dataComplete))
+print(json.dumps(dataComplete)
