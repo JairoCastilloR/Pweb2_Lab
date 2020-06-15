@@ -6,7 +6,9 @@
 
 	<body>
 		<h2>Consulta de la base de datos</h2>
-		<button type="button" onclick="standart()">Actor's Name</button>
+		<label for = 'query'> Movies: </label> 
+		<input text = 'text' id = 'query' name = 'query'  >
+		<button type="button" onclick="query(document.getElementById('query').value)"> MOVIES </button>
 		<table id="demo"></table>
 
 		<script src = 'called.js' ></script>

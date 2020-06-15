@@ -29,9 +29,8 @@ for row1 in c.execute(names):
         'id_actor' : row1[0],
         'name_actor' : row1[1]
         })
-    print(row1)
-dataComplete = data + data1 
 conection.close()
 
-print("Content-type :application/json\n\n")
-print(json.dumps(dataComplete)
+dataComplete = data + data1
+print("Content-Type :application/json\n\n")
+print(json.dumps(dataComplete))
